@@ -51,12 +51,19 @@ def form():
 def submit_form():
     #Создай переменные для сбора информации
     name = request.form['name']
-    name = request.form['email']
-    name = request.form['adress']
-    name = request.form['date']
+    email = request.form['email']
+    adress = request.form['adress']
+    date = request.form['date']
+    number = request.form['number']
+    comment = request.form['comment']
     # здесь вы можете сохранить данные или отправить их по электронной почте
     with open('form.txt', 'a',) as f:
         f.write(name + '/')
     return render_template('form_result.html',
-                           name={{'name','email','adress','date'}})                           
+                           name=name,
+                           email=email,
+                           adress=adress,
+                           date=date,
+                           number=number,
+                           comment=comment)                           
 app.run()
