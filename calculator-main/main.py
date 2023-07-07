@@ -59,11 +59,16 @@ def submit_form():
     # здесь вы можете сохранить данные или отправить их по электронной почте
     with open('form.txt', 'a',) as f:
         f.write(name + '/')
+        f.write(email + '/')
+        f.write(adress + '/')
+        f.write(date + '/')
+        f.write(number + '/')
+        f.write(comment + '/')
     return render_template('form_result.html',
                            name=name,
                            email=email,
                            adress=adress,
                            date=date,
                            number=number,
-                           comment=comment)                           
+                           comment=comment)                   
 app.run()
